@@ -1,0 +1,230 @@
+/* ============================================================
+   PRODUCTS SECTION — AquaShine Car Wash
+   ============================================================ */
+
+/* Homepage section sits on off-white bg so cards use white */
+.products {
+  background: var(--color-off-white);
+}
+
+.products__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.products__header-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* View-all text button */
+.products__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-cyan-dark);
+  letter-spacing: 0.04em;
+  transition: gap var(--transition-fast);
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+.products__view-all:hover {
+  gap: 0.7rem;
+}
+
+/* Product Grid — 3-column on homepage */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+/* Product Card — white on off-white = clear contrast */
+.product-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  border: 1px solid #dde4ec;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 180, 216, 0.14);
+  border-color: rgba(0, 180, 216, 0.3);
+}
+
+/* Image area — slightly tinted for depth */
+.product-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(145deg, #daeef8 0%, #c5e4f3 100%);
+}
+
+.product-card__image-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-smooth);
+}
+
+.product-card:hover .product-card__image-bg {
+  transform: scale(1.06);
+}
+
+.product-card__image-icon {
+  color: #0096b7;
+  transition: color var(--transition-smooth);
+}
+
+.product-card:hover .product-card__image-icon {
+  color: #007a98;
+}
+
+/* Badge */
+.product-card__badge {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  background: var(--color-cyan);
+  color: var(--color-navy);
+}
+
+/* Product info */
+.product-card__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card__category {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-cyan-dark);
+  margin-bottom: 0.3rem;
+}
+
+.product-card__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text-dark);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.product-card__description {
+  font-size: 0.875rem;
+  color: #4a5e72;
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-sm);
+  border-top: 1px solid #e8eef4;
+}
+
+.product-card__price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-cyan-dark);
+  letter-spacing: 0.04em;
+}
+
+/* "Get One" button */
+.product-card__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-cyan);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-card__add-btn:hover {
+  background: var(--color-cyan-light);
+  transform: translateY(-1px);
+}
+
+/* Footer CTA strip */
+.products__footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid #dde4ec;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.055);
+}
+
+.products__footer-text {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  max-width: 50ch;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products__footer-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

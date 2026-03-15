@@ -1,0 +1,213 @@
+/* ============================================================
+   NAVBAR — AquaShine Car Wash
+   ============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+/* Transparent state (on hero) */
+.navbar--transparent {
+  background: transparent;
+}
+
+/* Scrolled state */
+.navbar--scrolled {
+  background: rgba(11, 18, 33, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  height: 72px;
+}
+
+/* --- Logo --- */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.navbar__logo-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.navbar__logo-text span {
+  color: var(--color-cyan);
+}
+
+/* --- Desktop Nav Links --- */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.navbar__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-cyan);
+  border-radius: 2px;
+  transition: width var(--transition-smooth);
+}
+
+.navbar__link:hover {
+  color: var(--color-white);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+/* --- CTA Button in Nav --- */
+.navbar__cta {
+  padding: 0.6rem 1.4rem;
+  background: var(--color-cyan);
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-smooth);
+}
+
+.navbar__cta:hover {
+  background: var(--color-cyan-light);
+  transform: translateY(-1px);
+}
+
+/* --- Hamburger (Mobile) --- */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.navbar__hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transition: all var(--transition-smooth);
+  transform-origin: center;
+}
+
+/* Hamburger open state */
+.navbar__hamburger--open .navbar__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger--open .navbar__hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger--open .navbar__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Mobile Menu Drawer --- */
+.navbar__mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(11, 18, 33, 0.98);
+  backdrop-filter: blur(16px);
+  padding: 0 var(--space-md) var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--transition-smooth), padding var(--transition-smooth);
+}
+
+.navbar__mobile-menu--open {
+  display: flex;
+  max-height: 400px;
+  padding-bottom: var(--space-md);
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 0.85rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color var(--transition-fast);
+}
+
+.navbar__mobile-link:hover {
+  color: var(--color-cyan);
+}
+
+.navbar__mobile-cta {
+  display: block;
+  margin-top: var(--space-sm);
+  padding: 0.8rem var(--space-sm);
+  background: var(--color-cyan);
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__inner {
+    padding: 0 var(--space-md);
+  }
+}
